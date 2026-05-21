@@ -1,0 +1,23 @@
+import { useEffect, useRef } from "react";
+
+export function useRevealOnScroll() {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    ref.current?.querySelectorAll(".rv").forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
+  return ref;
+}

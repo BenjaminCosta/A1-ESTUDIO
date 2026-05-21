@@ -1,0 +1,174 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-display: swap;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Inter:wght@400;500&family=Oswald:wght@500;600;700&display=swap");
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-coral: var(--coral);
+  --color-gray-60: var(--gray-60);
+  --color-gray-40: var(--gray-40);
+  --color-gray-20: var(--gray-20);
+  --color-gray-10: var(--gray-10);
+  --font-display: var(--font-d);
+  --font-nav: var(--font-n);
+  --font-body: var(--font-b);
+}
+
+:root {
+  --radius: 0.5rem;
+  --paper: oklch(0.984 0.003 90);
+  --ink: oklch(0.16 0.005 60);
+  --coral: oklch(0.68 0.21 30);
+  --gray-60: oklch(0.42 0.005 60);
+  --gray-40: oklch(0.6 0.008 80);
+  --gray-20: oklch(0.82 0.008 80);
+  --gray-10: oklch(0.92 0.005 80);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--gray-10);
+  --secondary-foreground: var(--ink);
+  --muted: var(--gray-10);
+  --muted-foreground: var(--gray-60);
+  --accent: var(--coral);
+  --accent-foreground: var(--paper);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: var(--paper);
+  --border: var(--gray-10);
+  --input: var(--gray-10);
+  --ring: var(--coral);
+
+  --font-d: "Oswald", sans-serif;
+  --font-n: "Barlow Condensed", sans-serif;
+  --font-b: "Inter", sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-b);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .eye {
+    font-family: var(--font-n);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--coral);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    font-family: var(--font-d);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid currentColor;
+    background: transparent;
+    cursor: pointer;
+    transition:
+      background 0.22s ease,
+      color 0.22s ease;
+    white-space: nowrap;
+  }
+  .btn-w {
+    color: var(--paper);
+  }
+  .btn-w:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .btn-k {
+    color: var(--ink);
+  }
+  .btn-k:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .rv {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .rv.in {
+    opacity: 1;
+    transform: none;
+  }
+  .rv.d1 {
+    transition-delay: 0.1s;
+  }
+  .rv.d2 {
+    transition-delay: 0.22s;
+  }
+  .rv.d3 {
+    transition-delay: 0.36s;
+  }
+  .rv.d4 {
+    transition-delay: 0.5s;
+  }
+
+  .display {
+    font-family: var(--font-d);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.82;
+  }
+}
