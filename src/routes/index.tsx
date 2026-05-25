@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { CoralStatementSection } from "@/components/sections/CoralStatementSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { IngredientsStrip } from "@/components/sections/IngredientsStrip";
@@ -33,6 +34,7 @@ function Index() {
     <div className="bg-paper text-ink">
       <Header />
       <HeroSection />
+      <CoralStatementSection />
       <ManifestoSection />
       <IngredientsStrip />
       <ServicesSection />
